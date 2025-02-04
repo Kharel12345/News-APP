@@ -19,6 +19,7 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
+import CategoryTabs from "./category"; // Assuming CategoryTabs is a component for the categories
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,20 +56,10 @@ const Navbar = () => {
           <Container maxWidth="xl">
             <Toolbar
               sx={{
-                justifyContent: "space-between",
+                justifyContent: "center",
                 padding: "16px 0",
               }}
             >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: !isScrolled ? "primary.main" : "white",
-                  fontSize: !isScrolled ? "1.5rem" : "2rem",
-                  transition: "all 0.3s ease",
-                }}
-              >
-                Date
-              </Typography>
               <Typography
                 variant="h6"
                 sx={{
@@ -86,16 +77,6 @@ const Navbar = () => {
                   </div>
                 </div>
               </Typography>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: !isScrolled ? "primary.main" : "white",
-                  fontSize: !isScrolled ? "1.5rem" : "2rem",
-                  transition: "all 0.3s ease",
-                }}
-              >
-                Address
-              </Typography>
             </Toolbar>
           </Container>
         </AppBar>
@@ -105,7 +86,7 @@ const Navbar = () => {
       <AppBar
         position="fixed"
         sx={{
-          top: !isScrolled ? "64px" : "0px", // Adjust this to position below the logo (height of the logo bar)
+          top: !isScrolled ? "80px" : "0px", // Adjust this to position below the logo (height of the logo bar)
           backgroundColor: "white",
           boxShadow: isScrolled ? 1 : "none",
           transition: "all 0.3s ease",
@@ -150,23 +131,10 @@ const Navbar = () => {
               <Box></Box>
             )}
 
-            {/* Navigation Buttons */}
-            <Box
-              sx={{
-                display: "flex",
-                gap: 2, // Adjust gap between buttons
-              }}
-            >
-              <Button color={!isScrolled ? "primary" : "primary"}>Home</Button>
-              <Button color={!isScrolled ? "primary" : "primary"}>About</Button>
-              <Button color={!isScrolled ? "primary" : "primary"}>
-                Services
-              </Button>
-              <Button color={!isScrolled ? "primary" : "primary"}>
-                Contact
-              </Button>
-            </Box>
+            {/* Navigation Tabs (Category) */}
+            <CategoryTabs />
 
+            {/* Login Button */}
             <Box
               sx={{
                 display: "flex",
@@ -178,39 +146,75 @@ const Navbar = () => {
           </Toolbar>
         </Container>
         <div className="bg-gray-900 text-white py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center">
-                <Clock className="h-4 w-4 mr-1" />
-                <span>आइतबार, चैत्र १५, २०८०</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="h-4 w-4 mr-1" />
-                <span>काठमाडौं</span>
-              </div>
-              <div className="flex items-center">
-                <Sun className="h-4 w-4 mr-1" />
-                <span>२३° से</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-3">
-                <Facebook className="h-4 w-4 hover:text-blue-400 cursor-pointer" />
-                <Twitter className="h-4 w-4 hover:text-blue-400 cursor-pointer" />
-                <Youtube className="h-4 w-4 hover:text-red-500 cursor-pointer" />
-              </div>
-              <div className="border-l border-gray-600 pl-4">
-                <select className="bg-transparent text-sm outline-none cursor-pointer">
-                  <option value="ne">नेपाली</option>
-                  <option value="en">English</option>
-                </select>
-              </div>
-            </div>
-          </div>
+  <div className="container mx-auto px-4">
+    <div className="flex items-center justify-between text-sm">
+      <div className="flex items-center space-x-6">
+        <div className="flex items-center">
+          <Clock className="h-4 w-4 mr-1" />
+          <span>आइतबार, चैत्र १५, २०८०</span>
+        </div>
+        <div className="flex items-center">
+          <MapPin className="h-4 w-4 mr-1" />
+          <span>काठमाडौं</span>
+        </div>
+        <div className="flex items-center">
+          <Sun className="h-4 w-4 mr-1" />
+          <span>२३° से</span>
         </div>
       </div>
+      <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          <Facebook className="h-4 w-4 hover:text-blue-400 cursor-pointer" />
+          <Twitter className="h-4 w-4 hover:text-blue-400 cursor-pointer" />
+          <Youtube className="h-4 w-4 hover:text-red-500 cursor-pointer" />
+        </div>
+        <div className="border-l border-gray-600 pl-4">
+          <select className="bg-transparent text-sm outline-none cursor-pointer">
+            <option value="ne">नेपाली</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </AppBar>
+
+      {/* Bottom Info Bar */}
+      {/* <div className="bg-gray-900 text-white py-2">
+  <div className="container mx-auto px-4">
+    <div className="flex items-center justify-between text-sm">
+      <div className="flex items-center space-x-6">
+        <div className="flex items-center">
+          <Clock className="h-4 w-4 mr-1" />
+          <span>आइतबार, चैत्र १५, २०८०</span>
+        </div>
+        <div className="flex items-center">
+          <MapPin className="h-4 w-4 mr-1" />
+          <span>काठमाडौं</span>
+        </div>
+        <div className="flex items-center">
+          <Sun className="h-4 w-4 mr-1" />
+          <span>२३° से</span>
+        </div>
+      </div>
+      <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
+          <Facebook className="h-4 w-4 hover:text-blue-400 cursor-pointer" />
+          <Twitter className="h-4 w-4 hover:text-blue-400 cursor-pointer" />
+          <Youtube className="h-4 w-4 hover:text-red-500 cursor-pointer" />
+        </div>
+        <div className="border-l border-gray-600 pl-4">
+          <select className="bg-transparent text-sm outline-none cursor-pointer">
+            <option value="ne">नेपाली</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> */}
+
     </>
   );
 };

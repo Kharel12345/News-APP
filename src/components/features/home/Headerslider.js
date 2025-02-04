@@ -23,6 +23,20 @@ const HeaderSlider = () => {
             style={styles.image}
           />
         </div>
+        {/* <Card className="mb-8 overflow-hidden hover:shadow-lg transition-shadow">
+          <div className="relative">
+            <img
+              src={featuredNews.image}
+              alt={featuredNews.title}
+              className="w-full h-[400px] object-cover"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+              <span className="text-white bg-blue-600 px-2 py-1 rounded text-sm">{featuredNews.category}</span>
+              <h1 className="text-3xl font-bold text-white mt-2">{featuredNews.title}</h1>
+              <p className="text-gray-200 mt-2">{featuredNews.excerpt}</p>
+            </div>
+          </div>
+        </Card> */}
         
       </div>
       {/* <div style={styles.container}>
