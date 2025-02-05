@@ -16,7 +16,7 @@ const videos = [
 
 const VideoGallery = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-20 py-8 max-width:'90%'">
       <h2 className="text-3xl font-bold mb-6 text-center">Video Gallery</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {videos.map((video) => (

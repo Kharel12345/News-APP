@@ -7,7 +7,7 @@ const HeaderSlider = () => {
         
         <div style={styles.imageContainer}>
           <img
-            src="https://via.placeholder.com/600x300" 
+            src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440" 
             alt="Slider"
             style={styles.adimage}
           />
@@ -59,7 +59,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "20px",
+  
     backgroundColor: "#f5f5f5",
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -85,7 +85,7 @@ const styles = {
   },
   adimage: {
     width: "100%",
-    height: "auto",
+    height: "100px",
     objectFit: "cover",
     display: "block",
   },

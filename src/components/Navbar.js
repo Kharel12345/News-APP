@@ -42,7 +42,7 @@ const Navbar = () => {
       {/* Logo Section */}
       {!isScrolled && (
         <AppBar
-          position="fixed"
+          position="sticky"
           sx={{
             backgroundColor: !isScrolled ? "white" : "transparent",
             boxShadow: !isScrolled ? 1 : "none",

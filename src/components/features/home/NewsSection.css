@@ -1,5 +1,5 @@
 .news-section {
-  max-width: 1200px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
 
 .news-header h2 {
   font-size: 24px;
-  color: #333;
+  color: #f0f0f0;
 }
 
 .news-header .category {

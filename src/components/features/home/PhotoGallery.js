@@ -2,15 +2,17 @@
 import React from "react";
 
 const photos = [
-  { id: 1, src: "/images/photo1.jpg", alt: "Photo 1" },
-  { id: 2, src: "/images/photo2.jpg", alt: "Photo 2" },
-  { id: 3, src: "/images/photo3.jpg", alt: "Photo 3" },
+  { id: 1, src: "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440", alt: "Photo 1" },
+  { id: 2, src: "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440", alt: "Photo 2" },
+  { id: 3, src: "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440", alt: "Photo 3" },
+  { id: 4, src: "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440", alt: "Photo 4" },
+
   // Add more photos here
 ];
 
 const PhotoGallery = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-20 py-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Photo Gallery</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {photos.map((photo) => (
