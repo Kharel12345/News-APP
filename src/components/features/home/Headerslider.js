@@ -1,29 +1,28 @@
 import React from "react";
-
+import ImageSlider from "../../../components/features/home/headernewsSlider";
 const HeaderSlider = () => {
   return (
     <>
       <div style={styles.container}>
-        
         <div style={styles.imageContainer}>
           <img
-            src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440" 
+            src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440"
             alt="Slider"
             style={styles.adimage}
           />
         </div>
-        
       </div>
-      <div style={styles.container}>
-        
-        <div style={styles.imageContainer}>
+      <ImageSlider />
+      {/* <div style={styles.container}> */}
+
+      {/* <div style={styles.imageContainer}>
           <img
             src="https://via.placeholder.com/600x300" 
             alt="Slider"
             style={styles.image}
           />
-        </div>
-        {/* <Card className="mb-8 overflow-hidden hover:shadow-lg transition-shadow">
+        </div> */}
+      {/* <Card className="mb-8 overflow-hidden hover:shadow-lg transition-shadow">
           <div className="relative">
             <img
               src={featuredNews.image}
@@ -37,8 +36,8 @@ const HeaderSlider = () => {
             </div>
           </div>
         </Card> */}
-        
-      </div>
+
+      {/* </div> */}
       {/* <div style={styles.container}>
         
         <div style={styles.imageContainer}>
@@ -59,7 +58,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  
+
     backgroundColor: "#f5f5f5",
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",

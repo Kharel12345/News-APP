@@ -1,0 +1,16 @@
+/* styles/BackButton.module.css */
+.backButton {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .backButton:hover {
+    background: #0056b3;
+  }

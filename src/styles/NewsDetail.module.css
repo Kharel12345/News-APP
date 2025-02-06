@@ -1,0 +1,50 @@
+/* styles/NewsDetail.module.css */
+.detailContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .newsDetail {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .detailImage {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .detailDate {
+    color: #666;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+  
+  .detailTitle {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .detailContent {
+    color: #444;
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .newsDetail {
+      padding: 1rem;
+    }
+    
+    .detailTitle {
+      font-size: 1.8rem;
+    }
+  }

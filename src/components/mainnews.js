@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { AccessTime as Clock } from "@mui/icons-material";
 import { fetchNews } from "../lib/api";
+import Link from 'next/link';
 
 const MainNewsSection = ({ mainNews }) => {
   const [news, setNews] = useState([]);
@@ -33,80 +34,93 @@ const MainNewsSection = ({ mainNews }) => {
     <Grid spacing={2} sx={{ width: "100%", margin: 0 }}>
       <Grid xs={12} lg={9} sx={{ width: "100%", padding: 0 }}>
         {news.slice(0, visibleCount).map((item, index) => (
-          <Grid
-            item
-            xs={12}
-            key={index}
-            sx={{ width: "100%", padding: "10px" }}
-          >
-            <Card
-              sx={{
-                width: "100%",
-                display: "flex",
-                flexDirection: { xs: "column", sm: "row" },
-              }}
+          
+          <Link href={`/news/1`} key={item.id} passHref>
+            <Grid
+              item
+              xs={12}
+              key={index}
+              sx={{ width: "100%", padding: "10px" }}
             >
-              {/* Image on the left */}
-              <Box
+              <Card
                 sx={{
-                  width: { xs: "100%", sm: "30%" },
-                  minWidth: "200px",
-                  height: { xs: "200px", sm: "auto" },
-                  padding: "10px",
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
                 }}
               >
-                <img
-                  src={item.urlToImage}
-                  alt={item.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </Box>
-
-              {/* Text content on the right */}
-              <Box
-                sx={{
-                  width: { xs: "100%", sm: "70%" },
-                  padding: 2,
-                }}
-              >
-                <CardHeader
-                  title={
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        "&:hover": { color: "primary.main" },
-                        cursor: "pointer",
-                      }}
-                    >
-                      {item.title}
-                    </Typography>
-                  }
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    {item.description}
-                  </Typography>
-                </CardContent>
-                <CardActions
-                  sx={{ justifyContent: "space-between", alignItems: "center" }}
+                {/* Image on the left */}
+                <Box
+                  sx={{
+                    width: { xs: "100%", sm: "30%" },
+                    minWidth: "200px",
+                    height: { xs: "200px", sm: "auto" },
+                    padding: "10px",
+                  }}
                 >
-                  <Box
+                  <img
+                    src={item.urlToImage}
+                    alt={item.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Box>
+
+                {/* Text content on the right */}
+                <Box
+                  sx={{
+                    width: { xs: "100%", sm: "70%" },
+                    padding: 2,
+                  }}
+                >
+                  <CardHeader
+                    title={
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          "&:hover": { color: "primary.main" },
+                          cursor: "pointer",
+                        }}
+                      >
+                        {item.title}
+                      </Typography>
+                    }
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions
                     sx={{
-                      display: "flex",
+                      justifyContent: "space-between",
                       alignItems: "center",
-                      color: "text.secondary",
                     }}
                   >
-                    <Clock sx={{ fontSize: 16, mr: 1 }} />
-                    <Typography variant="body2"> {item.publishedAt}</Typography>
-                  </Box>
-                  <Button variant="text" size="small">
-                    थप पढ्नुहोस् →
-                  </Button>
-                </CardActions>
-              </Box>
-            </Card>
-          </Grid>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        color: "text.secondary",
+                      }}
+                    >
+                      <Clock sx={{ fontSize: 16, mr: 1 }} />
+                      <Typography variant="body2">
+                        {" "}
+                        {item.publishedAt}
+                      </Typography>
+                    </Box>
+                    <Button variant="text" size="small">
+                      थप पढ्नुहोस् →
+                    </Button>
+                  </CardActions>
+                </Box>
+              </Card>
+            </Grid>
+          </Link>
         ))}
         {/* {Object.entries(mainNews).map(([section, news]) => (
           <Box key={section} sx={{  width: '100%' }}>

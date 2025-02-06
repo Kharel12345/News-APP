@@ -5,12 +5,12 @@ import TrendingUp from "@mui/icons-material/TrendingUp";
 import ArrowRight from "@mui/icons-material/ArrowRight";
 
 const BreakingNewsCard = ({ breakingNews }) => {
-   
   return (
     <Card
       sx={{
-        mb: 6,
-        width:"100%",
+        mb: 2,
+        width: "100%",
+      
       }}
     >
       {/* Card Header */}
@@ -20,7 +20,7 @@ const BreakingNewsCard = ({ breakingNews }) => {
           backgroundColor: "#FFF5F5",
           display: "flex",
           alignItems: "center",
-          paddingBottom: 2,
+          paddingBottom: 1,
         }}
         avatar={<TrendingUp sx={{ color: "#F44336", fontSize: 24 }} />}
         title={

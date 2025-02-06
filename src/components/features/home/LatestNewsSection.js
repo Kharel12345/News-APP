@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import BreakingNewsCard from "../../breaking";
 import MainNewsSection from "../../mainnews";
+import NewsGrid from "../../features/home/blog";
 import { margin } from "@mui/system";
 
 const LatestNewsSection = () => {
+  const [isMiddleScrolling, setIsMiddleScrolling] = useState(false);
+  const middleRef = useRef(null);
+  const sideRef = useRef(null);
+  const containerRef = useRef(null);
   const breakingNews = [
     {
       category: "अर्थ",
@@ -64,40 +69,70 @@ const LatestNewsSection = () => {
       },
     ],
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!middleRef.current || !sideRef.current) return;
+
+      const middleRect = middleRef.current.getBoundingClientRect();
+      const sideRect = sideRef.current.getBoundingClientRect();
+      const containerTop = containerRef.current.getBoundingClientRect().top;
+
+      if (middleRect.height > sideRect.height) {
+        const scrolledPastSide =
+          -containerTop > sideRect.height - window.innerHeight;
+        setIsMiddleScrolling(scrolledPastSide);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div style={styles.container}>
-      <div style={styles.middleSection}>
-      <h1
-          style={{
-            margin: "0 0 10px 0",
-            color: "#2c3e50",
-            fontSize: "28px",
-            fontWeight: "800",
-            fontFamily: '"Georgia", serif',
-            lineHeight: "1.2",
-          }}
-        >
-          विशेष समाचार
-        </h1>
-        <div style={styles.headercontainer}>
-          <div style={styles.imageContainer}>
-            <img
-              src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440
+    <div ref={containerRef} className="w-[90%] mx-auto p-5 bg-gray-100">
+      <div className="flex gap-5">
+        <div ref={middleRef} className="w-2/3">
+          <h1
+            style={{
+              margin: "0 0 10px 0",
+              color: "#2c3e50",
+              fontSize: "28px",
+              fontWeight: "800",
+              fontFamily: '"Georgia", serif',
+              lineHeight: "1.2",
+            }}
+          >
+            विशेष समाचार
+          </h1>
+          <div style={styles.headercontainer}>
+            <div style={styles.imageContainer}>
+              <img
+                src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/P7M7UBFL43RMPIVJDF2BQ5I6JA_size-normalized.jpg&w=1440
 "
-              alt="AD section"
-              style={styles.adimage}
+                alt="AD section"
+                style={styles.adimage}
+              />
+            </div>
+          </div>
+
+          <MainNewsSection mainNews={mainNews} />
+        </div>
+        <div
+          ref={sideRef}
+          className={`w-1/3 ${isMiddleScrolling ? "sticky top-5" : ""}`}
+        >
+          <BreakingNewsCard breakingNews={breakingNews} />
+          <div className="w-full h-[250px] md:h-[300px] lg:h-[350px] bg-gray-200 flex items-center justify-center mt-4">
+            <img
+              src="https://www.hindustantimes.com/ht-img/img/2025/02/05/1600x900/US-67TH-GRAMMY-AWARDS-ARRIVALS-41_1738552145596_1738765142388.jpg"
+              alt="Advertisement"
+              className="w-full h-full object-cover"
             />
           </div>
+
+          <NewsGrid />
         </div>
-
-
-       
-
-        <MainNewsSection mainNews={mainNews} />
-      
-      </div>
-      <div style={styles.sideSection}>
-        <BreakingNewsCard breakingNews={breakingNews} />
       </div>
     </div>
   );
@@ -105,8 +140,8 @@ const LatestNewsSection = () => {
 
 const styles = {
   headercontainer: {
-    width: "100%",
-   margin:"20px",
+    width: "96%",
+    margin: "20px",
     backgroundColor: "#ffcc00",
     textAlign: "center",
     fontWeight: "bold",
@@ -134,21 +169,21 @@ const styles = {
   container: {
     display: "flex",
     justifyContent: "space-between",
-    gap: "20px", 
+    gap: "20px",
     padding: "20px",
     backgroundColor: "#f5f5f5",
     margin: "20px auto",
     maxWidth: "90%",
   },
   sideSection: {
-    flex: 1, 
+    flex: 1,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
 
     backgroundColor: "#e0e0e0",
     borderRadius: "8px",
-    maxHeight: "150vh",
+    maxHeight: "100%",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   },
   middleSection: {
