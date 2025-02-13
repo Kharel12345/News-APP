@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import { useRouter, usePathname } from 'next/navigation';
 
+
 const categories = ["मुख्य", "राजनीति", "अर्थ", "समाज", "खेलकुद", "मनोरञ्जन"];
 
 
@@ -13,7 +14,7 @@ const CategoryTabs = () => {
 
   const handleChange = (event, newValue) => {
 
-router.push('/');
+router.push('/sportspage');
     setSelectedTab(newValue);
   };
 
